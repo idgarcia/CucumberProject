@@ -1,15 +1,14 @@
-package com.Syntax.cucumberproject.stepsDefinitions;
+package stepsDefinition;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+
 import cucumber.api.java.en.When;
 
 public class LoginSteps {
@@ -38,7 +37,7 @@ driver.get("https://www.freecrm.com/index.html");
 
 	@When("^I click login button$")
 	public void i_click_login_button() throws Throwable {
-
+		Thread.sleep(3000);
 	   driver.findElement(By.xpath("//input[@value='Login']")).click();
 	}
 
@@ -56,5 +55,12 @@ driver.get("https://www.freecrm.com/index.html");
 	@Then("^I see sign up link$")
 	public void i_see_sign_up_link() throws Throwable {
 	driver.findElement(By.xpath("//a[@class='navbar-brand']//img[@class='img-responsive']")).isDisplayed();
-}
+	}
+	@When("^I enter valid username and password$")
+	public void i_enter_valid_username_and_password() throws Throwable {
+		  driver.findElement(By.name("username")).sendKeys("irisfree");
+		  driver.findElement(By.name("password")).sendKeys("irisfre");
+		  
+	}
+
 }
